@@ -10,7 +10,7 @@ include 'dbconfig.php';
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 $requestUrl = $_SERVER['REQUEST_URI'];
 
-if ($requestMethod == "GET" && $requestUrl == "/allevents_project/getfilteredevents.php/get-filtered-events") {
+if ($requestMethod == "GET") {
     $city = isset($_GET['city']) ? mysqli_real_escape_string($conn, $_GET['city']) : '';
     $category = isset($_GET['category']) ? mysqli_real_escape_string($conn, $_GET['category']) : '';
     $date = isset($_GET['date']) ? mysqli_real_escape_string($conn, $_GET['date']) : '';
@@ -29,7 +29,7 @@ if ($requestMethod == "GET" && $requestUrl == "/allevents_project/getfilteredeve
         $dateParts = explode('/', $date);
         if (count($dateParts) == 3) {
             $formattedDate = $dateParts[2] . '-' . $dateParts[1] . '-' . $dateParts[0];
-            $query .= " AND start_time >= '$formattedDate'";
+            $query .= " AND start_date >= '$formattedDate'";
         }
     }
 

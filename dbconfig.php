@@ -24,8 +24,8 @@ if (!$tableExists) {
     CREATE TABLE $lowerTableName (
         id INT AUTO_INCREMENT PRIMARY KEY,
         event_name VARCHAR(255) NOT NULL,
-        start_time VARCHAR(255) NOT NULL,
-        end_time VARCHAR(255) NOT NULL,
+        start_date DATE NOT NULL,
+        end_date DATE NOT NULL,
         location VARCHAR(255) NOT NULL,
         description VARCHAR(1000),
         category VARCHAR(255),
@@ -33,3 +33,4 @@ if (!$tableExists) {
     )";
     mysqli_query($conn, $createTableQuery);
 }
+

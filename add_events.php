@@ -13,8 +13,8 @@ if ($requestMethod == "POST" && $requestUrl == "/allevents_project/add_events.ph
     $eventInput = json_decode(file_get_contents("php://input"), true);
     global $conn;
     $event_name = mysqli_real_escape_string($conn, $eventInput['event_name']);
-    $start_time = mysqli_real_escape_string($conn, $eventInput['start_time']);  
-    $end_time = mysqli_real_escape_string($conn, $eventInput['end_time']);  
+    $start_date = mysqli_real_escape_string($conn, $eventInput['start_date']);  
+    $end_date = mysqli_real_escape_string($conn, $eventInput['end_date']);  
     $location = mysqli_real_escape_string($conn, $eventInput['location']);  
     $description = mysqli_real_escape_string($conn, $eventInput['description']);  
     $category = mysqli_real_escape_string($conn, $eventInput['category']);  
@@ -32,7 +32,7 @@ if ($requestMethod == "POST" && $requestUrl == "/allevents_project/add_events.ph
         exit();
     }
     else {
-        $query = "INSERT INTO events (event_name, start_time, end_time, location, description, category, banner_image) VALUES ('$event_name', '$start_time', '$end_time', '$location', '$description', '$category', '$banner_image')";
+        $query = "INSERT INTO events (event_name, start_date, end_date, location, description, category, banner_image) VALUES ('$event_name', '$start_time', '$end_time', '$location', '$description', '$category', '$banner_image')";
         $result = mysqli_query($conn, $query);
 
         if($result) {
