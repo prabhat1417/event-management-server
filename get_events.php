@@ -8,7 +8,7 @@ header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 include 'dbconfig.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action']) && $_GET['action'] === 'get_events') {
-    $query = "SELECT * FROM xyz";
+    $query = "SELECT * FROM events";
     $result = mysqli_query($conn, $query);
 
     if (!$result) {

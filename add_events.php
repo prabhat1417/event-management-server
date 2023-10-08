@@ -5,7 +5,7 @@ header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: POST, OPTIONS, GET');
 header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With');
 
-require './dbconfig.php';
+include 'dbconfig.php';
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 $requestUrl = $_SERVER['REQUEST_URI'];
 
@@ -32,7 +32,7 @@ if ($requestMethod == "POST" && $requestUrl == "/allevents_project/add_events.ph
         exit();
     }
     else {
-        $query = "INSERT INTO xyz (event_name, start_time, end_time, location, description, category, banner_image) VALUES ('$event_name', '$start_time', '$end_time', '$location', '$description', '$category', '$banner_image')";
+        $query = "INSERT INTO events (event_name, start_time, end_time, location, description, category, banner_image) VALUES ('$event_name', '$start_time', '$end_time', '$location', '$description', '$category', '$banner_image')";
         $result = mysqli_query($conn, $query);
 
         if($result) {

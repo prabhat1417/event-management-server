@@ -13,7 +13,7 @@ if(!$conn) {
 }
 
 
-$lowerTableName = 'xyz';
+$lowerTableName = 'events';
 
 $tableCheckQuery = "SHOW TABLES LIKE '$lowerTableName'";
 $tableExistsResult = mysqli_query($conn, $tableCheckQuery);
